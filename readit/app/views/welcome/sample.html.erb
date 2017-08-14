@@ -1,0 +1,23 @@
+<h1>Welcome#Sample</h1>
+<p>Find me in app/views/welcome/sample.html.erb</p>
+
+<%#This retrieves the instance variable from the Controller%>
+
+<%# Remember however : You can't send data from the View to the Controller%> 
+
+<%= "Message from Controller : #{@controller_message} " %>
+
+<%# This is how you link pages a) Format : link_to("LinkText", "Link")
+b) You can link by referencing the controller and action
+		{:controller => 'welcome', :action => 'index'}
+c) You could drop the controller since they use the same one %> 
+
+<%= link_to("Go to Index", {:controller => 'welcome',
+	:action => 'index'}) %>
+
+<%# Passing Additional parameters in URL%>
+<%= link_to("Pass Params in URL", {:controller => 'welcome',
+	:action => 'index' , :id => '5', :random_parameter => 'Derek'}) %>
+
+
+

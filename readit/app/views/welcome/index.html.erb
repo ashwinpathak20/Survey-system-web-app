@@ -1,0 +1,29 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<p> erb - Embedded Ruby file : HTML + Ruby Code </p>
+<%#
+% Ruby Code % 
+%= Ruby with Output %
+%# Comment %
+%>
+
+<%= "Count to 10" %> 
+<br/> 
+<% 11.times do |i| %> 
+<%= i %>
+<% end%>
+
+
+<% if(params.has_key?(:id) && 
+      params.has_key?(:random_parameter))
+      @id = params['id']
+      @random = params['random_parameter'] %><br/>
+      <%= "ID : #{params[:id]}" %><br/>
+      <%= "RANDOM PARAM : #{params[:random_parameter]}" %><br/>
+
+<% end %>
+
+
+
+
+

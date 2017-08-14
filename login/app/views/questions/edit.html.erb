@@ -1,0 +1,21 @@
+<% provide(:title, "edit questions") %>
+<h1> update your questions</h1>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+	<%= form_for(@question) do |f| %>
+		<%= render 'shared/error_messages_2' %>
+
+		<%= f.label :name %><br>
+		<%= f.text_field :q_name, class: 'form-control' %>
+		<br>
+		<%= f.label :name %><br>
+		<%= f.text_field :q_name, class: 'form-control' %>
+		<br>
+		<%= f.label :"type" %><br>
+		<%= f.select :q_definition, ['single-correct-objective','multiple-corret-objective','subjective'] , class: 'form-control' %>
+		<br>
+		<%= f.submit "save changes", class: "btn btn-primary" %>
+	<% end %>
+
+	</div>
+</div>

@@ -1,0 +1,50 @@
+<% provide(:title, 'All Responses') %>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<h1>Let's Survey</h1>
+		</div>
+		<div class="col-md-9">
+		</div>
+	</div>
+</nav>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+<h1> All Responses</h1>
+
+<ul class="users">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Survey</th>
+				<th>Question</th>
+				<th>Option</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @references.each do |t| %>
+				<tr class="info">
+					<td>
+						<% @user=User.find_by_id(t.user_id) %>
+						<%= @user.first_name %>
+					</td>
+					<td>
+						<%  @option=Option.find_by_id(t.option_id) %>
+						<% @question= Question.find_by_id( @option.question_id) %>
+						<%= Survey.find_by_id( @question.survey_id).name %>
+					</td>
+					<td>
+						<%= Question.find_by_id( @option.question_id).q_name %>
+					</td>
+					<td>
+						<%= @option.q_option %>
+					</td>
+				</tr>
+				<% end %>
+		</tbody>
+	</table>
+</ul>
+	</div>
+</div>

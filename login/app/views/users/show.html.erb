@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<h1>Let's Survey</h1>
+		</div>
+		<ul class="nav navabr-nav col-md-6 col-md-offset-3" >
+			<h3>
+			<% if (current_user).admin? %> 
+				<%= link_to "Users", users_path %>
+			<% end %>
+			&nbsp
+			&nbsp
+			<% if logged_in? %>
+					<%= link_to "Logout", logout_path, method: "delete" %>
+			&nbsp
+			&nbsp
+					<%= link_to "Settings", edit_user_path(current_user) %>
+			&nbsp
+			&nbsp
+			<% else %>
+					<%= link_to "Log in", login_path %>
+			&nbsp
+			&nbsp
+			<% end %>
+			</h3>
+		</ul>
+	</div>
+	</div>
+</nav>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+<table class="table">
+<tbody>
+<% if (current_user).admin? %>
+
+	<tr class="info">
+		<td>
+			<%= link_to "Add Survey" , '/newsurvey' %>
+			</td>
+		</tr>
+
+		<tr class="info">
+		<td>
+		<%= link_to "Add Question" , '/newquestions' %>
+			</td>
+		</tr>
+		<tr class="info">
+		<td>
+		<%= link_to "Add Options" , '/newoptions' %>
+			</td>
+		</tr>
+		<tr class="info">
+		<td>
+		<%= link_to "View Response" , '/references' %>
+			</td>
+		</tr>
+<% end %>
+<tr class="info">
+	<td>
+		<%= link_to "See All The Surveys" , '/surveys' %>
+		</td>
+		</tr>
+</tbody>
+</table>
+	</div
+</div>

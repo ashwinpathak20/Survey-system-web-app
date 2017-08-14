@@ -1,0 +1,44 @@
+<% provide(:title, 'All Questions') %>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<h1>Let's Survey</h1>
+		</div>
+		<div class="col-md-9">
+		</div>
+	</div>
+</nav>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+<h1> All Questions to the Survey</h1>
+
+<ul class="users">
+		<table class="table">
+		<thead>
+			<tr>
+				<th>Question</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @questions.each do |question| %>
+				<tr class="info">
+			<% if current_user.admin?%>
+				<td>	<%= link_to question.q_name, question_path(question.id) %>
+			</td><td><%= link_to "edit", edit_question_path(question)%>
+		</td><td> <%= link_to "delete", question, method: :delete,
+			data: { confirm: "You sure?" } %></td>
+			<% end %>
+			<% if !current_user.admin? %>
+				<td>
+					<%= link_to question.q_name, new_reference_path('type'=>question.id) %>
+				</td>
+			<% end %>
+				</tr>
+	<% end %>
+		</tbody>
+		</table>
+</ul>
+	</div>
+</div>
+
